@@ -1,0 +1,1 @@
+node test/allTests.js "${@}"
