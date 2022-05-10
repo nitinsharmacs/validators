@@ -7,7 +7,49 @@ suite(
   makeTest(
     'Valid recipient and domain',
     () => {
-      equal(emailValidator('nitin@gmail.com'), false);
+      equal(emailValidator('nitin@gmail.com'), true);
     }
-  )
+  ),
+  makeTest(
+    'No recipient',
+    () => {
+      equal(emailValidator('@gmail.com'), false);
+    }
+  ),
+  makeTest(
+    'No domain',
+    () => {
+      equal(emailValidator('nitin@'), false);
+    }
+  ),
+  makeTest(
+    'Without @',
+    () => {
+      equal(emailValidator('nitin'), false);
+    }
+  ),
+  makeTest(
+    'With top level domain',
+    () => {
+      equal(emailValidator('nitin@gmail.com.uk'), true);
+    }
+  ),
+  makeTest(
+    'Invalid top level domain',
+    () => {
+      equal(emailValidator('nitin@gmail.com.uk1'), false);
+    }
+  ),
+  makeTest(
+    'Recipient with special character',
+    () => {
+      equal(emailValidator('nitin.sharma@gmail.com.uk'), true);
+    }
+  ),
+  makeTest(
+    'Recipient with ensuing special character',
+    () => {
+      equal(emailValidator('nitin..sharma@gmail.com.uk'), false);
+    }
+  ),
 );
