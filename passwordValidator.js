@@ -55,9 +55,26 @@ const handleSpecialChars = function (specialCharsAllowed) {
   return { passed: true };
 };
 
+const hasConsequetive = (text) => {
+  const rule = /(.)\1/;
+  return rule.test(text);
+};
+
+const handleConsequetive = function (allowed) {
+  if (!allowed && hasConsequetive(this)) {
+    throw {
+      message: 'No consequetive characters',
+      code: 'CONSEQUETIVECHARS',
+      passed: false
+    };
+  }
+  return { passed: true };
+};
+
 const runners = {
   length: validateLength,
-  specialChars: handleSpecialChars
+  specialChars: handleSpecialChars,
+  consequetiveAllowed: handleConsequetive
 };
 
 const getRunner = (ruleName, password) => {
@@ -82,13 +99,9 @@ const validatePassword = (rules, password) => {
 };
 
 // const rules = {
-//   length: {
-//     min: 4,
-//     max: 8
-//   },
-//   specialChars: true
+//   consequetiveAllowed: true
 // };
 
-// console.log(validatePassword(rules, 'nitin!@#'));
+// console.log(validatePassword(rules, 'nitin..'));
 
 exports.validatePassword = validatePassword;

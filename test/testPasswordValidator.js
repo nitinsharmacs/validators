@@ -140,5 +140,34 @@ suite(
       deepStrictEqual(validatePassword(rules, 'nitin@#'), expected);
     }
   ),
-
+  makeTest(
+    'Password with consequetive characters with consequetive not allowed rule',
+    () => {
+      const rules = {
+        consequetiveAllowed: false
+      };
+      const expected = {
+        consequetiveAllowed: {
+          message: 'No consequetive characters',
+          code: 'CONSEQUETIVECHARS',
+          passed: false
+        }
+      };
+      deepStrictEqual(validatePassword(rules, 'nitinn'), expected);
+    }
+  ),
+  makeTest(
+    'Password with consequetive characters with consequetive allowed rule',
+    () => {
+      const rules = {
+        consequetiveAllowed: true
+      };
+      const expected = {
+        consequetiveAllowed: {
+          passed: true
+        }
+      };
+      deepStrictEqual(validatePassword(rules, 'nitinn'), expected);
+    }
+  ),
 );
