@@ -19,8 +19,8 @@ const validateRecipient = recipient => {
 };
 
 const validateDomain = domain => {
-  const rule = /^[a-zA-Z0-9]+(\.[a-zA-Z]+){1,}$/;
-  return rule.test(domain);
+  const rule = /^[a-zA-Z0-9-]+(\.[a-zA-Z]+){1,}$/;
+  return hasNoEnsuingSpecialChars(domain) && rule.test(domain);
 };
 
 const emailValidator = email => {

@@ -52,4 +52,10 @@ suite(
       equal(emailValidator('nitin..sharma@gmail.com.uk'), false);
     }
   ),
+  makeTest(
+    'Domain with dash',
+    () => {
+      equal(emailValidator('nitin.sharma@sub-gmail.gmail.com'), true);
+    }
+  ),
 );
