@@ -98,10 +98,4 @@ const validatePassword = (rules, password) => {
   return results;
 };
 
-// const rules = {
-//   consequetiveAllowed: true
-// };
-
-// console.log(validatePassword(rules, 'nitin..'));
-
 exports.validatePassword = validatePassword;
