@@ -1,6 +1,6 @@
 const { deepStrictEqual } = require('assert');
 const { makeTest, suite } = require('./utility/testLib.js');
-const { validatePassword } = require('../passwordValidator.js');
+const { validatePassword } = require('../validators/passwordValidator.js');
 
 suite(
   'passwordValidator',

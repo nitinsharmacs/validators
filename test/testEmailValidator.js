@@ -1,6 +1,6 @@
 const { equal } = require('assert');
 const { makeTest, suite } = require('./utility/testLib.js');
-const { emailValidator } = require('../emailValidator.js');
+const { emailValidator } = require('../validators/emailValidator.js');
 
 suite(
   'emailValidator',
