@@ -1,10 +1,8 @@
 const { deepStrictEqual } = require('assert');
-const { makeTest, suite } = require('./utility/testLib.js');
 const { validatePassword } = require('../validators/passwordValidator.js');
 
-suite(
-  'passwordValidator',
-  makeTest(
+describe('passwordValidator', () => {
+  it(
     'Password length less than min',
     () => {
       const rules = {
@@ -21,9 +19,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password length greater than max',
     () => {
       const rules = {
@@ -40,9 +38,8 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitinsharma'), expected);
-    }
-  ),
-  makeTest(
+    });
+  it(
     'Password length in between the range',
     () => {
       const rules = {
@@ -57,9 +54,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitins'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password with special characters with disabled special character rule',
     () => {
       const rules = {
@@ -73,9 +70,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin@#'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password without special characters with enabled special character rule',
     () => {
       const rules = {
@@ -89,9 +86,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password with special characters with enabled special character rule',
     () => {
       const rules = {
@@ -103,9 +100,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin@#'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password without special characters with disabled special character rule',
     () => {
       const rules = {
@@ -117,9 +114,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password with length and enabled special character rule',
     () => {
       const rules = {
@@ -138,9 +135,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitin@#'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password with consequetive characters with consequetive not allowed rule',
     () => {
       const rules = {
@@ -154,9 +151,9 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitinn'), expected);
-    }
-  ),
-  makeTest(
+    });
+
+  it(
     'Password with consequetive characters with consequetive allowed rule',
     () => {
       const rules = {
@@ -168,6 +165,5 @@ suite(
         }
       };
       deepStrictEqual(validatePassword(rules, 'nitinn'), expected);
-    }
-  ),
-);
+    });
+});

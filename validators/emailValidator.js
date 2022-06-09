@@ -14,7 +14,7 @@ const hasNoEnsuingSpecialChars = text => {
 };
 
 const validateRecipient = recipient => {
-  const rule = /^[a-zA-Z0-9!#$%&'*+-/=?^_`.{|]+$/;
+  const rule = /^[\w!#$%&'*+-/=?^`.{|]+$/;
   return hasNoEnsuingSpecialChars(recipient) && rule.test(recipient);
 };
 

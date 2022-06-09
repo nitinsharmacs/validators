@@ -1,0 +1,33 @@
+{
+  "name": "validators",
+  "version": "1.0.0",
+  "description": "Form input validators",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinsharmacs/validators.git"
+  },
+  "keywords": [
+    "validators",
+    "form",
+    "email",
+    "verification",
+    "phone",
+    "number"
+  ],
+  "author": "nitin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitinsharmacs/validators/issues"
+  },
+  "homepage": "https://github.com/nitinsharmacs/validators#readme",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}
